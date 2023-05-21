@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package store;
+
+import "google/protobuf/empty.proto";
+
+service StoreService {
+    rpc ReserveFood(ReserveFoodRequest) returns (ReserveFoodResponse) {}
+    rpc BookFood(BookFoodRequest) returns (google.protobuf.Empty);
+}
+
+message ReserveFoodRequest {
+    int32 food_id = 1;
+}
+
+message ReserveFoodResponse {
+    int32 packet_id = 1;
+}
+
+message BookFoodRequest {
+    int32 packet_id = 1;
+    int32 order_id = 2;
+}

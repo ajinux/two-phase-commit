@@ -1,0 +1,14 @@
+version: v1
+managed:
+  enabled: true
+  go_package_prefix:
+    default: github.com/Ajithkumarsekar/two-phase-commit
+plugins:
+  # Use protoc-gen-go at v1.28.1. Generates message and enum types.
+  - plugin: buf.build/protocolbuffers/go:v1.28.1
+    out: gen
+    opt: paths=source_relative
+  # Use the latest version of protoc-gen-go-grpc. Generates Go client and server stubs for the gRPC framework.
+  - plugin: buf.build/grpc/go
+    out: gen
+    opt: paths=source_relative

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package delivery;
+
+import "google/protobuf/empty.proto";
+
+
+service DeliveryService {
+    rpc ReserveAgent (google.protobuf.Empty) returns (ReserveAgentResponse) {};
+    rpc BookAgent (BookAgentRequest) returns (google.protobuf.Empty) {};
+}
+
+message ReserveAgentResponse {
+    int32 agent_id = 1;
+}
+
+message BookAgentRequest {
+    int32 agent_id = 1;
+    int32 order_id = 2;
+}
