@@ -31,8 +31,8 @@ sequenceDiagram
     end
     o -->> u: order confirmed 
 ```
-1. Reserve phase: Reserve all the required resources with a timer. If the timer expires, release the resource 
-2. Commit phase: Book/commit the resered resource. The probability of commit phase should be low and ideally should happen only in a out of control scenarious such as network failure, store, delivery service outage. The commit phase can be retried in cause of such failure.
+1. **Reserve phase**: Reserve all the required resources with a timer. If the timer expires, release the resource.
+2. **Commit phase**: Book/commit the reserved resource. The probability of failure during the commit phase should be minimal, ideally occurring only in exceptional scenarios such as network failure, store , or delivery service disruption. In the event of such failure, the commit phase can be retried.
 
 ## Reference
 1. [Distributed Transactions: Two-Phase Commit Protocol by Arpit Bhayani](https://www.youtube.com/watch?v=7FgU1D4EnpQ)
